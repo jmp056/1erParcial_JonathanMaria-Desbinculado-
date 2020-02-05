@@ -8,4 +8,12 @@ Welcome to your new app.
 
 @code{
 
+    public Articulos Articulo { get; set; }
+    public string Mensaje { get; set; }
+
+    protected override void OnInitialized()
+    {
+        this.Articulo = new Articulos();
+        this.Mensaje = string.Empty;
+    }
 }
