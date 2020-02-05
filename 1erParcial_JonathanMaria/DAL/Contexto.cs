@@ -10,7 +10,7 @@ namespace _1erParcial_JonathanMaria.DAL
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server = JMP-PC\SQLEXPRESS; Database = 1erParcial_JonathanMaria; Trusted_Connection = true"); 
+            optionsBuilder.UseSqlServer(@"Server = JMP-PC\SQLEXPRESS; Database = 1erParcial_JonathanMaria; Trusted_Connection = true");
         }
     }
 }
