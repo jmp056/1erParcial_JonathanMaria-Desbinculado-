@@ -41,7 +41,7 @@ Welcome to your new app.
             else
             {
 
-                if(Ac.Buscar(Articulo.ArticuloId) != null)
+                if (Ac.Buscar(Articulo.ArticuloId) != null)
                 {
 
                     if (Ac.Modificar(Articulo))
@@ -60,6 +60,59 @@ Welcome to your new app.
 
                     Mensaje = "Este articulo no existe, por ende, no pudo ser modificado!..";
                 }
+            }
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+
+
+    }
+    private void Buscar()
+    {
+
+        ArticulosController Ac = new ArticulosController();
+        try
+        {
+
+            Articulos At = null;
+            At = Ac.Buscar(Articulo.ArticuloId);
+            if (At != null)
+            {
+
+                Articulo = At;
+            }
+            else
+            {
+
+                Mensaje = "Este articulo no existe!...";
+            }
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+    }
+
+    private void Eliminar()
+    {
+
+        ArticulosController Ac = new ArticulosController();
+        try
+        {
+
+            if (Ac.Eliminar(Articulo.ArticuloId))
+            {
+
+                Mensaje = "El articulo fue eliminado con exito!...";
+            }
+            else
+            {
+
+                Mensaje = "No fue posible eliminar el articulo!...";
             }
         }
         catch (Exception)
