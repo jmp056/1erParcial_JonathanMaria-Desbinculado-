@@ -39,7 +39,7 @@ namespace _1erParcial_JonathanMaria.Controllers
 
             try
             {
-                contexto.Entry(Articulo).State = EntityState.Modified;
+                contexto.Articulos.Add(Articulo).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)

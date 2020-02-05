@@ -73,6 +73,7 @@
             if (Articulo.ArticuloId == 0)
             {
 
+                Calcular();
                 if (Ac.Guardar(Articulo))
                 {
 
@@ -93,7 +94,8 @@
 
                     if (Ac.Modificar(Articulo))
                     {
-
+                        
+                        Calcular();
                         Mensaje = "El articulo se modifico con exito!...";
                     }
                     else
@@ -171,6 +173,6 @@
 
     private void Calcular()
     {
-        Articulo.Precio = Articulo.Costo * (Articulo.Costo * (Articulo.Ganancia / 100));
+        Articulo.Precio = Articulo.Costo + (Articulo.Costo * (Articulo.Ganancia / 100));
     }
 }
