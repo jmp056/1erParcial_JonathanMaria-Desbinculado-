@@ -16,4 +16,56 @@ Welcome to your new app.
         this.Articulo = new Articulos();
         this.Mensaje = string.Empty;
     }
+
+    public void Guardar()
+    {
+        ArticulosController Ac = new ArticulosController();
+        try
+        {
+
+            if (Articulo.ArticuloId == 0)
+            {
+
+                if (Ac.Guardar(Articulo))
+                {
+
+                    Mensaje = "El articulo se guardado con exito!...";
+                }
+                else
+                {
+
+                    Mensaje = "No fue posible guardar el articulo!...";
+                }
+
+            }
+            else
+            {
+
+                if(Ac.Buscar(Articulo.ArticuloId) != null)
+                {
+
+                    if (Ac.Modificar(Articulo))
+                    {
+
+                        Mensaje = "El articulo se modifico con exito!...";
+                    }
+                    else
+                    {
+
+                        Mensaje = "No fue posible modificar el articulo!...";
+                    }
+                }
+                else
+                {
+
+                    Mensaje = "Este articulo no existe, por ende, no pudo ser modificado!..";
+                }
+            }
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+    }
 }
