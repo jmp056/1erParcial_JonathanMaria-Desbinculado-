@@ -11,10 +11,9 @@ namespace _1erParcial_JonathanMaria.Controllers
 {
     public class ArticulosController
     {
-        Contexto contexto = new Contexto();
-
         public bool Guardar(Articulos Articulo)
         {
+            Contexto contexto = new Contexto();
             bool paso = false;
 
             try
@@ -35,11 +34,12 @@ namespace _1erParcial_JonathanMaria.Controllers
 
         public bool Modificar(Articulos Articulo)
         {
+            Contexto contexto = new Contexto();
             bool paso = false;
 
             try
             {
-                contexto.Articulos.Add(Articulo).State = EntityState.Modified;
+                contexto.Entry(Articulo).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -50,11 +50,13 @@ namespace _1erParcial_JonathanMaria.Controllers
             {
                 contexto.Dispose();
             }
+
             return paso;
         }
 
         public bool Eliminar(int Id)
         {
+            Contexto contexto = new Contexto();
             bool paso = false;
 
             try
@@ -77,6 +79,7 @@ namespace _1erParcial_JonathanMaria.Controllers
         public Articulos Buscar(int Id)
         {
 
+            Contexto contexto = new Contexto();
             Articulos Articulo = new Articulos();
 
             try
